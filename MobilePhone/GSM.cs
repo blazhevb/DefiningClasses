@@ -8,39 +8,56 @@ namespace MobilePhone
 {
     public class GSM
     {
-        public string model = "g30";
-        public string manufacturer = "samsung";
-        public decimal price = 0.00m;
-        public string owner = null;
-        public Battery battery;
-        public Display display;
+        private string model;
+        private string manufacturer;
+        private decimal price;
+        private string owner;
+        private Battery battery;
+        private Display display;
 
-        public GSM() : this(0.00m)
-        {
-            this.model = "g30";
-            this.manufacturer = "samsung";
-        }
+        static GSM iphone4S;
         
-        public GSM(decimal Price) : this(null)
+       public GSM (string model, string manufacturer, decimal price, string owner, Battery battery, Display display)
         {
-            this.price = Price;
+            this.model = model;
+            this.manufacturer = manufacturer;
+            this.price = price;
+            this.owner = owner;
+            this.battery = battery;
+            this.display = display;
         }
 
-        public GSM(string Owner)
+        public string Model
         {
-            this.owner = Owner;
+            get { return model; }
+            set {
+                    if (model.Length > 0)
+                    {
+                        model = value;
+                    }
+                    else model = "g253";
+                }
         }
 
-        public GSM(decimal Price, string Owner)
+        public decimal Price
         {
-            this.price = Price;
-            this.owner = Owner;
+            get
+            {
+                return price;
+            }
+            set
+            {
+                price = value;
+            }
         }
 
-        public GSM(Display displ, Battery bat)
+        static GSM Iphone4S
         {
-            this.display = displ;
-            this.battery = bat;
+            get
+            {
+                return new GSM("iphone4S", "Apple", 1800.00m, "Steve Jobs", new Battery(56, 20, EnumBatterytype.LiIon), new Display(10, 256000000));
+            }
         }
+
     }
 }
