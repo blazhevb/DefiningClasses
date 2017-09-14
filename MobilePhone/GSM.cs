@@ -15,9 +15,11 @@ namespace MobilePhone
         private Battery battery;
         private Display display;
 
-        static GSM iphone4S;
+       public static GSM iphone4S;
+
         
-       public GSM (string model, string manufacturer, decimal price, string owner, Battery battery, Display display)
+
+        public GSM (string model, string manufacturer, decimal price, string owner, Battery battery, Display display)
         {
             this.model = model;
             this.manufacturer = manufacturer;
@@ -51,13 +53,21 @@ namespace MobilePhone
             }
         }
 
-        static GSM Iphone4S
+        public static GSM Iphone4S
         {
             get
             {
-                return new GSM("iphone4S", "Apple", 1800.00m, "Steve Jobs", new Battery(56, 20, EnumBatterytype.LiIon), new Display(10, 256000000));
+                return iphone4S = new GSM("iphone4S", "Apple", 1800.00m, "Steve Jobs", new Battery(56, 20, EnumBatterytype.LiIon), new Display(10, 256000000));
+            }
+            set
+            {
+                iphone4S = value;
             }
         }
 
+        public override string ToString()
+        {
+            return model + "\r\n" + manufacturer + "\r\n" + price + "\r\n" + owner + "\r\n" + battery.TalkTime + "\r\n" + battery.Idletime + "\r\n" + battery.batteryType + "\r\n" + display.Size + "\r\n" + display.Colors;
+        }
     }
 }

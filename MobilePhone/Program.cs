@@ -10,14 +10,10 @@ namespace MobilePhone
     {
         static void Main(string[] args)
         {
-             
-            //Console.WriteLine(gsm.model);
-            //Console.WriteLine(gsm.manufacturer);
-            //Console.WriteLine(gsm.price);
-            //Console.WriteLine(gsm.owner);
-            //Console.WriteLine(gsm.battery.batteryType);
-            //Console.WriteLine(gsm.battery.talkTime);
-            Console.WriteLine();
+            GSMTest.CreateGSMs();
+            GSMTest.DisplayContent();
+
+
             Console.ReadLine();
         }
 
